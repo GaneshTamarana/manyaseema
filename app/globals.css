@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1F2937;
+  --primary: #1B5E20;
+  --primary-hover: #2E7D32;
+  --secondary: #C8A951;
+  --accent-bg: #E8F5E9;
+  --light-gray: #F9FAFB;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-accent-bg: var(--accent-bg);
+  --color-light-gray: var(--light-gray);
+
+  --font-heading: var(--font-poppins);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+  font-family: var(--font-inter), sans-serif;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
