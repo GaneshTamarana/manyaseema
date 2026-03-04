@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -54,7 +55,15 @@ export function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     <div className="flex-shrink-0 relative z-50">
-                        <Link href="/" className="group" aria-label="MVO Home">
+                        <Link href="/" className="group flex items-center space-x-3" aria-label="MVO Home">
+                            <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 p-1 group-hover:scale-110 transition-transform duration-500">
+                                <Image
+                                    src="/logo.png"
+                                    alt="MVO Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                             <span className={cn(
                                 "text-xl sm:text-2xl font-heading font-black tracking-tighter transition-colors duration-300 italic",
                                 showSolid ? "text-primary" : "text-white"
