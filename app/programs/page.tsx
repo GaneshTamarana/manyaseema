@@ -120,9 +120,11 @@ export default function Programs() {
                         <p className="text-lg md:text-2xl text-accent-bg/80 mb-12 md:mb-16 font-light leading-relaxed max-w-2xl mx-auto italic">
                             Sponsor a Digital Shiksha lab or a Matri Shakti collective today. Every contribution is a seed for generational change.
                         </p>
-                        <button className="w-full sm:w-auto bg-white text-primary px-12 md:px-16 py-5 md:py-6 rounded-2xl font-black text-xl md:text-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all transform hover:-translate-y-2 italic tracking-tight">
-                            Become a Program Sponsor
-                        </button>
+                        <Link href="/support-us">
+                            <button className="w-full sm:w-auto bg-white text-primary px-12 md:px-16 py-5 md:py-6 rounded-2xl font-black text-xl md:text-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all transform hover:-translate-y-2 italic tracking-tight">
+                                Become a Program Sponsor
+                            </button>
+                        </Link>
                     </ScrollReveal>
                 </section>
             </main>

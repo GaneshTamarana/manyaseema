@@ -11,8 +11,6 @@ import { cn } from "@/lib/utils";
 const navItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about-us" },
-    { name: "Impact", href: "/impact" },
-    { name: "Works Done", href: "/works-done" },
     { name: "Programs", href: "/programs" },
     { name: "Media Centre", href: "/media-centre" },
     { name: "Contact Us", href: "/contact-us" },
@@ -98,7 +96,7 @@ export function Navbar() {
                                 </Link>
                             );
                         })}
-                        <Link href="/join-us">
+                        <Link href="/support-us">
                             <m.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -110,7 +108,7 @@ export function Navbar() {
                                         : "bg-white text-primary border border-primary/20 hover:border-primary"
                                 )}
                             >
-                                Join Us
+                                Support Us
                             </m.button>
                         </Link>
                     </div>
@@ -181,9 +179,9 @@ export function Navbar() {
                             transition={{ delay: 0.4 }}
                             className="mt-12"
                         >
-                            <Link href="/join-us">
+                            <Link href="/support-us">
                                 <button className="w-full bg-primary text-white py-6 rounded-3xl font-black text-2xl italic shadow-2xl">
-                                    Join Our Mission
+                                    Support Us
                                 </button>
                             </Link>
                         </m.div>

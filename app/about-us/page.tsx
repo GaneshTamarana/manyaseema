@@ -56,10 +56,16 @@ export default function AboutUs() {
                             <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-accent-bg hidden md:block" />
 
                             {[
-                                { year: "2012", title: "The Foundation", desc: "MVO was founded by a group of passionate volunteers with the dream of a self-reliant rural India." },
-                                { year: "2015", title: "Early Impact", desc: "Successfully transformed 10 village clusters, implementing digital literacy and basic healthcare." },
-                                { year: "2019", title: "Expansion Phase", desc: "Scaled operations across 3 states, partnering with leading CSR wings to enhance infrastructure." },
-                                { year: "2024", title: "Current Vision", desc: "Pioneering sustainable agri-tech and women-led cooperatives in over 150 villages." }
+                                { year: "2001", title: "The Foundation", desc: "Manyaseema was formally established and registered to work with tribal communities in the Eastern Ghats of Andhra Pradesh." },
+                                { year: "2001-2004", title: "Community Forest Management (CFM)", desc: "Implemented community forest management initiatives with support from the World Bank focusing on plantation, livelihood training, and sustainable forest use." },
+                                { year: "2003-2006", title: "Rehabilitation Action Plan (RAP)", desc: "Supported tribal communities shifting from Podu cultivation to sustainable livelihoods through check dam construction and small livelihood enterprises like tent houses, kirana shops, and transport services." },
+                                { year: "2008–2010", title: "Youth & Child Development Programs", desc: "Implemented child rights protection and youth capacity-building programs with support from government and development organizations." },
+                                { year: "2011–2012", title: "NTFP Value Addition Training", desc: "Training programs were conducted to improve processing and marketing of forest produce such as honey and amla." },
+                                { year: "2013–2014", title: "Value Addition Programs Expanded", desc: "Programs focused on value addition of amla, adda leaf products, and tamarind to improve tribal incomes." },
+                                { year: "2014–2016", title: "Area Based MFP Development Program", desc: "Large-scale training programs were conducted to promote value addition and marketing of Minor Forest Produce across tribal villages." },
+                                { year: "2016–2017", title: "Biodiversity Conservation Programs", desc: "Biodiversity documentation and environmental conservation initiatives were implemented in tribal areas." },
+                                { year: "2020–2021", title: "Van Dhan Vikas Kendras", desc: "Community groups were formed to strengthen collection, processing, and marketing of forest produce." },
+                                { year: "2022–2025", title: "Farmer Producer Organizations (FPOs)", desc: "Formation of Sugumuna FPO and Arunatara FPO with NABARD support to improve market access and collective marketing for tribal farmers." }
                             ].map((milestone, idx) => (
                                 <div key={idx} className={`relative flex items-center ${idx % 2 === 0 ? "md:flex-row-reverse md:text-right" : "md:flex-row md:text-left"} flex-col text-center`}>
                                     <ScrollReveal direction={idx % 2 === 0 ? "left" : "right"} className="md:w-1/2 w-full p-8 md:p-12 bg-light-gray rounded-[32px] md:rounded-[40px] border border-gray-50 shadow-sm hover:shadow-2xl transition-all group">
@@ -103,7 +109,34 @@ export default function AboutUs() {
                     </div>
                 </section>
 
-                {/* 4. Leadership Section */}
+                {/* 4. SDG Alignment Section */}
+                <section className="py-24 md:py-40 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <ScrollReveal direction="up" className="text-center mb-16 md:mb-24">
+                            <h2 className="text-primary font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Our Commitment</h2>
+                            <p className="text-3xl md:text-6xl font-heading font-black text-gray-900 italic tracking-tighter italic">Aligned with Global Goals</p>
+                        </ScrollReveal>
+
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+                            {[
+                                { n: "13", t: "Climate Action", c: "bg-[#00966C]" },
+                                { n: "4", t: "Quality Education", c: "bg-[#C5192D]" },
+                                { n: "5", t: "Gender Equality", c: "bg-[#FF3A21]" },
+                                { n: "6", t: "Clean Water", c: "bg-[#26BDE2]" },
+                                { n: "8", t: "Health and Well-being", c: "bg-[#A21942]" },
+                                { n: "17", t: "Partnerships", c: "bg-[#19486A]" }
+                            ].map((goal, idx) => (
+                                <ScrollReveal key={idx} direction="up" delay={idx * 0.1} className={`${goal.c} p-6 md:p-8 rounded-[24px] md:rounded-[32px] text-white aspect-square flex flex-col justify-between hover:scale-110 hover:-rotate-2 transition-all cursor-pointer shadow-xl relative overflow-hidden group`}>
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                                    <span className="text-2xl md:text-3xl font-black font-heading relative z-10">{goal.n}</span>
+                                    <span className="text-[10px] md:text-sm font-black leading-tight relative z-10 uppercase tracking-tighter">{goal.t}</span>
+                                </ScrollReveal>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* 5. Leadership Section */}
                 <section className="py-24 md:py-40 bg-white">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <ScrollReveal direction="up" className="text-center mb-16 md:mb-24">
@@ -157,12 +190,13 @@ export default function AboutUs() {
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
                                     <div className="p-6 md:p-8 rounded-[24px] md:rounded-[32px] bg-light-gray border border-gray-50">
-                                        <h4 className="font-black text-lg md:text-xl mb-2 italic">NGO Registration</h4>
-                                        <p className="text-gray-500 text-xs md:text-sm font-medium">Reg No: 1234/567-XYZ</p>
+                                        <h4 className="font-black text-lg md:text-xl mb-2 italic">NGO Registration</h4><br />
+                                        <h6 className="text-gray-500 text-md md:text-sm font-medium">CERTIFCATE OF REGISTRATION OF SOCIETIES</h6>
+                                        <p className="text-gray-500 text-xs md:text-sm font-medium">Reg No: 984</p>
                                     </div>
                                     <div className="p-6 md:p-8 rounded-[24px] md:rounded-[32px] bg-light-gray border border-gray-50">
-                                        <h4 className="font-black text-lg md:text-xl mb-2 italic">FCRA Compliant</h4>
-                                        <p className="text-gray-500 text-xs md:text-sm font-medium">Valid until 2028</p>
+                                        <h4 className="font-black text-lg md:text-xl mb-2 italic">Other Compliances</h4>
+                                        <p className="text-gray-500 text-xs md:text-sm font-medium">12A, CSR1, 80G, NGO Darpan</p>
                                     </div>
                                 </div>
                                 <p className="text-lg md:text-xl text-gray-600 leading-relaxed italic font-light">
@@ -197,13 +231,8 @@ export default function AboutUs() {
                             There's a place for you in our mission to transform India's rural heartlands. Join us today.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-10">
-                            <Link href="/join-us" className="w-full sm:w-auto">
-                                <button className="w-full bg-white text-primary px-12 md:px-16 py-5 md:py-6 rounded-2xl font-black text-xl md:text-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all transform hover:-translate-y-2 italic tracking-tight">
-                                    Volunteer Now
-                                </button>
-                            </Link>
                             <Link href="/contact-us" className="w-full sm:w-auto">
-                                <button className="w-full bg-transparent border-2 border-white text-white px-12 md:px-16 py-5 md:py-6 rounded-2xl font-black text-xl md:text-2xl hover:bg-white hover:text-primary transition-all transform hover:-translate-y-2 italic tracking-tight">
+                                <button className="w-full bg-white text-primary px-12 md:px-16 py-5 md:py-6 rounded-2xl font-black text-xl md:text-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all transform hover:-translate-y-2 italic tracking-tight">
                                     Partner With Us
                                 </button>
                             </Link>

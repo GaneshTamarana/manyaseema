@@ -78,21 +78,21 @@ export default function ContactUs() {
                                                 <div className="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition-transform">📍</div>
                                                 <div className="space-y-2">
                                                     <p className="text-xs font-black uppercase tracking-widest text-primary">Location</p>
-                                                    <p className="text-xl text-gray-700 font-light italic">123 Development Hub, Rural District, Odisha, India 750001</p>
+                                                    <p className="text-xl text-gray-700 font-light italic">2-112, Devangula Street, Rolugunta Village, Rolugunta Mandal, Anakapalli Dist., Andhrapradesh, 531114.</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start space-x-8 group">
                                                 <div className="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition-transform">📞</div>
                                                 <div className="space-y-2">
                                                     <p className="text-xs font-black uppercase tracking-widest text-primary">Phone</p>
-                                                    <p className="text-xl text-gray-700 font-light italic">+91 98765 43210</p>
+                                                    <p className="text-xl text-gray-700 font-light italic">+91 9441919864</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start space-x-8 group">
                                                 <div className="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition-transform">✉️</div>
                                                 <div className="space-y-2">
                                                     <p className="text-xs font-black uppercase tracking-widest text-primary">Email</p>
-                                                    <p className="text-xl text-gray-700 font-light italic">hello@mvo-org.in</p>
+                                                    <p className="text-xl text-gray-700 font-light italic">manyaseema.ngo@gmail.com</p>
                                                 </div>
                                             </div>
                                         </div>

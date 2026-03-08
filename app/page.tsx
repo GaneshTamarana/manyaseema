@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
 import { HeroBackgroundSlider } from "@/components/ui/HeroBackgroundSlider";
+import { LogoMarquee } from "@/components/ui/LogoMarquee";
 
 export const metadata: Metadata = {
   title: "Empowering Rural Andhra Pradesh | MVO NGO India",
@@ -36,9 +37,11 @@ export default function Home() {
                     Join Our Mission
                   </button>
                 </Link>
-                <button className="w-full sm:w-auto bg-white/10 backdrop-blur-md border-2 border-white text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl hover:bg-white hover:text-primary transition-all shadow-xl transform hover:-translate-y-1 italic tracking-tight">
-                  Donate Now
-                </button>
+                <Link href="/support-us" className="w-full sm:w-auto">
+                  <button className="w-full bg-white/10 backdrop-blur-md border-2 border-white text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl hover:bg-white hover:text-primary transition-all shadow-xl transform hover:-translate-y-1 italic tracking-tight">
+                    Donate Now
+                  </button>
+                </Link>
               </div>
             </ScrollReveal>
           </div>
@@ -77,7 +80,7 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
               <ScrollReveal direction="left" className="w-full lg:w-1/2 relative">
                 <div className="absolute -top-10 -left-10 w-40 h-40 md:w-64 md:h-64 bg-primary/5 rounded-full blur-3xl" />
-                <div className="relative rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl aspect-[4/5] md:aspect-auto">
+                <div className="relative rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl aspect-[4/5]">
                   <Image
                     src="/vision.png"
                     alt="Collective Action in Rural India"
@@ -91,14 +94,15 @@ export default function Home() {
               <ScrollReveal direction="right" className="w-full lg:w-1/2">
                 <h2 id="vision-title" className="text-primary font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Our Initiatives</h2>
                 <h3 className="text-3xl md:text-6xl font-heading font-black text-gray-900 mb-8 md:mb-10 leading-tight tracking-tighter italic">
-                  Projects transforming livelihood and <span className="text-primary border-b-4 border-primary/10 pb-2">Nature restoration.</span>
+                  Projects transforming livelihood and <span className="text-primary border-b-4 border-primary/10 pb-1">Nature restoration.</span>
                 </h3>
-                <p className="text-lg md:text-xl text-gray-700 mb-10 md:mb-12 leading-relaxed font-light italic">
-                  Manyaseema implements community-driven projects across the Eastern Ghats of Andhra Pradesh focusing on tribal livelihoods, Minor Forest Produce value addition, environmental conservation, and skill development.                </p>
+                <p className="text-lg md:text-xl text-gray-700 mb-10 md:mb-12 leading-relaxed font-light italic max-w-2xl">
+                  Manyaseema implements community-driven projects across the Eastern Ghats of Andhra Pradesh focusing on tribal livelihoods, Minor Forest Produce value addition, environmental conservation, and skill development.
+                </p>
                 <div className="grid gap-6 md:gap-8">
                   {["Zero Illiteracy in focus villages", "Complete Sanitation coverage", "100% Women workforce participation"].map((item, id) => (
-                    <div key={id} className="flex items-center space-x-6 group">
-                      <div className="bg-primary p-2 rounded-full shadow-lg group-hover:rotate-12 transition-transform">
+                    <div key={id} className="flex items-start space-x-6 group">
+                      <div className="bg-primary p-2 mt-1 rounded-full shadow-lg group-hover:rotate-12 transition-transform shrink-0">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                         </svg>
@@ -135,19 +139,23 @@ export default function Home() {
         </section>
 
         {/* 5. Companies We Worked With */}
-        <section className="py-20 md:py-32 bg-white" aria-label="Our Partners">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ScrollReveal direction="up" className="text-center mb-16 md:mb-20">
-              <p className="text-gray-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs">Trusted Partners & Supporters</p>
-            </ScrollReveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-16">
-              {["TRIFED", "ITDA Paderu", "NABARD", "WorldBank", "AP Biodiversity Board", "Goonj", "Keystone Foundation"].map((brand, i) => (
-                <ScrollReveal key={brand} direction="up" delay={i * 0.1} className="flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer focus-visible:opacity-100 outline-offset-8">
-                  <span className="text-xl md:text-2xl font-black text-gray-900 tracking-tighter italic">{brand}</span>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
+        <section className="py-20 bg-white" aria-label="Our Partners">
+          <ScrollReveal direction="up" className="text-center mb-16">
+            <p className="text-gray-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs">Trusted Partners & Supporters</p>
+          </ScrollReveal>
+          <LogoMarquee
+            items={[
+              { name: "TRIFED", logo: "/trifed-logo.png" },
+              { name: "ITDA Paderu" },
+              { name: "NABARD", logo: "/nabard-logo.png" },
+              { name: "WorldBank", logo: "/worldbank-logo.png" },
+              { name: "APSBDB", logo: "/apsbdb-logo.png" },
+              { name: "Goonj", logo: "/goonj-logo.png" },
+              { name: "Keystone Foundation", logo: "/keystoneFoundation-logo.png" }
+            ]}
+            bgClass="bg-accent-bg"
+            fadeColor="#E8F5E9"
+          />
         </section>
 
         {/* 6. Awards Section */}
