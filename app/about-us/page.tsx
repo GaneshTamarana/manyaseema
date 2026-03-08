@@ -19,8 +19,7 @@ export default function AboutUs() {
                                     <span className="text-primary">Manyaseema</span>
                                 </h1>
                                 <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-xl font-light italic">
-                                    Empowering Rural Communities. Building Sustainable Futures. We are a grassroots movement dedicated to bringing lasting change to India's rural heartlands since 2012.
-                                </p>
+                                    Manyaseema is a non-profit, non-political, and community-based organization working with tribal and rural communities in the Eastern Ghats of Andhra Pradesh. Established in 1998 and registered in 2001, the organization focuses on sustainable livelihood development, environmental conservation, and empowerment of marginalized communities.                                </p>
                                 <Link href="/join-us">
                                     <button className="w-full sm:w-auto bg-primary text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-primary-hover shadow-2xl transition-all transform hover:-translate-y-1 italic tracking-tight">
                                         Join Our Movement

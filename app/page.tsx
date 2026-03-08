@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
+import { HeroBackgroundSlider } from "@/components/ui/HeroBackgroundSlider";
 
 export const metadata: Metadata = {
   title: "Empowering Rural Andhra Pradesh | MVO NGO India",
@@ -17,27 +18,18 @@ export default function Home() {
       <main>
         {/* 1. Hero Section */}
         <section className="relative min-h-[90vh] md:h-screen flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/hero.png"
-              alt="MVO Hero"
-              fill
-              className="object-cover brightness-50"
-              priority={true}
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
-          </div>
+          <HeroBackgroundSlider />
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-0">
             <ScrollReveal direction="up" distance={50} duration={0.8}>
               <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white leading-[1.1] mb-6 md:mb-8 tracking-tighter italic">
                 Empowering Lives <br />
-                <span className="text-accent-bg">Building Futures.</span>
+                <span className="text-accent-bg">Preserving Nature</span><br />
               </h1>
               <p className="text-lg md:text-2xl text-gray-100 mb-8 md:mb-12 leading-relaxed font-light max-w-2xl italic">
-                Manyaseema Volunteer Organization (MVO) is dedicated to transforming rural India through sustainable development and community-led initiatives.
-              </p>
+                Manyaseema works with tribal communities in the Eastern Ghats of Andhra Pradesh,
+                particularly in Alluri Sitarama Raju district, promoting sustainable livelihoods,
+                Minor Forest Produce value addition, environmental conservation, and community development. </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
                 <Link href="/join-us" className="w-full sm:w-auto">
                   <button className="w-full bg-primary text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl hover:bg-primary-hover shadow-2xl transition-all transform hover:-translate-y-1 italic tracking-tight">
@@ -51,11 +43,6 @@ export default function Home() {
             </ScrollReveal>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
-            <div className="w-1 h-12 rounded-full bg-white/20 relative">
-              <div className="absolute top-0 left-0 w-full h-1/2 bg-white rounded-full" />
-            </div>
-          </div>
         </section>
 
         {/* 2. Our Mission Section */}
@@ -68,9 +55,9 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {[
-                { title: "Sustainable Growth", desc: "Developing self-reliant rural ecosystems that thrive through local resources.", icon: "🌱" },
-                { title: "Educational Equity", desc: "Ensuring every child has access to quality education and digital literacy.", icon: "🎓" },
-                { title: "Health & Wellness", desc: "Bringing modern healthcare facilities to the doorstep of rural families.", icon: "🏥" }
+                { title: "BioDiversity & Environmental conservation", desc: "Promoting environmental conservation, biodiversity protection,and restoration of forests, water bodies, and natural ecosystemsin the Eastern Ghats.", icon: "🌱" },
+                { title: "Strengthening Livelihoods", desc: "Strengthening livelihoods of tribal communities through value addition of Minor Forest Produce, agriculture, and community-based enterprises.", icon: "🎓" },
+                { title: "Skill Development & Value Addition", desc: "Training tribal communities in processing and value addition of forest produce such as tamarind, honey, turmeric, and other local resources.", icon: "🏥" }
               ].map((m, i) => (
                 <ScrollReveal key={i} direction="up" delay={i * 0.15} className="group bg-light-gray p-8 md:p-12 rounded-[40px] hover:bg-primary transition-all duration-700 hover:shadow-2xl cursor-default border border-transparent hover:border-primary/10 focus-within:ring-4 focus-within:ring-primary/30">
                   <div className="text-5xl md:text-6xl mb-8 md:mb-10 group-hover:scale-125 transition-transform duration-700 ease-out" aria-hidden="true">{m.icon}</div>
@@ -102,13 +89,12 @@ export default function Home() {
                 </div>
               </ScrollReveal>
               <ScrollReveal direction="right" className="w-full lg:w-1/2">
-                <h2 id="vision-title" className="text-primary font-bold tracking-widest uppercase text-xs md:text-sm mb-4">The Future</h2>
+                <h2 id="vision-title" className="text-primary font-bold tracking-widest uppercase text-xs md:text-sm mb-4">Our Initiatives</h2>
                 <h3 className="text-3xl md:text-6xl font-heading font-black text-gray-900 mb-8 md:mb-10 leading-tight tracking-tighter italic">
-                  A vision for a more inclusive and <span className="text-primary border-b-4 border-primary/10 pb-2">prosperous India.</span>
+                  Projects transforming livelihood and <span className="text-primary border-b-4 border-primary/10 pb-2">Nature restoration.</span>
                 </h3>
                 <p className="text-lg md:text-xl text-gray-700 mb-10 md:mb-12 leading-relaxed font-light italic">
-                  We envision a future where geographical boundaries don't define opportunities. Where every village is a hub of innovation, health, and happiness.
-                </p>
+                  Manyaseema implements community-driven projects across the Eastern Ghats of Andhra Pradesh focusing on tribal livelihoods, Minor Forest Produce value addition, environmental conservation, and skill development.                </p>
                 <div className="grid gap-6 md:gap-8">
                   {["Zero Illiteracy in focus villages", "Complete Sanitation coverage", "100% Women workforce participation"].map((item, id) => (
                     <div key={id} className="flex items-center space-x-6 group">
@@ -131,11 +117,11 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-16 text-center">
               {[
-                { label: "Villages", val: 150, suffix: "+" },
-                { label: "Beneficiaries", val: 250, suffix: "K+" },
-                { label: "Volunteers", val: 5000, suffix: "+" },
-                { label: "Partners", val: 45, suffix: "+" },
-                { label: "Awards", val: 12, suffix: "" }
+                { label: "Villages", val: 250, suffix: "+" },
+                { label: "Beneficiaries", val: 10, suffix: "K+" },
+                { label: "Trainings", val: 60, suffix: "+" },
+                { label: "Partners", val: 15, suffix: "+" },
+                { label: "Years of Community Work", val: 12, suffix: "+" }
               ].map((stat, idx) => (
                 <ScrollReveal key={idx} direction="up" delay={idx * 0.1} className="space-y-2 md:space-y-4">
                   <div className="text-5xl md:text-7xl font-black font-heading tabular-nums italic tracking-tighter">
@@ -155,7 +141,7 @@ export default function Home() {
               <p className="text-gray-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs">Trusted Partners & Supporters</p>
             </ScrollReveal>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-16">
-              {["EcoBank", "RuralLink", "FutureIndia", "GreenSphere", "VillageCore", "ImpactCorp"].map((brand, i) => (
+              {["TRIFED", "ITDA Paderu", "NABARD", "WorldBank", "AP Biodiversity Board", "Goonj", "Keystone Foundation"].map((brand, i) => (
                 <ScrollReveal key={brand} direction="up" delay={i * 0.1} className="flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer focus-visible:opacity-100 outline-offset-8">
                   <span className="text-xl md:text-2xl font-black text-gray-900 tracking-tighter italic">{brand}</span>
                 </ScrollReveal>
@@ -173,15 +159,17 @@ export default function Home() {
                 <p className="text-3xl md:text-5xl font-heading font-black text-gray-900 leading-tight italic tracking-tighter">Global Recognition</p>
               </ScrollReveal>
               <ScrollReveal direction="right" className="w-full md:w-auto">
-                <button className="text-primary font-black text-lg border-b-2 border-primary/20 hover:border-primary pb-1 transition-all italic tracking-tight">
-                  View our journey →
-                </button>
+                <Link href="/about-us">
+                  <button className="text-primary font-black text-lg border-b-2 border-primary/20 hover:border-primary pb-1 transition-all italic tracking-tight">
+                    View our journey →
+                  </button>
+                </Link>
               </ScrollReveal>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
               {[
-                { title: "Best Rural NGO", year: "2024", org: "Social Impact Awards" },
+                { title: "Best Rural NGO", year: "2024", org: "7TH BNO Awards" },
                 { title: "Community Leader", year: "2023", org: "National Volunteers Assoc" },
                 { title: "Green Initiative", year: "2024", org: "Eco-Friendly Forum" }
               ].map((award, i) => (
