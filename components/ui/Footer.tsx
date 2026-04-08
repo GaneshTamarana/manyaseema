@@ -13,11 +13,13 @@ export function Footer() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-20 text-center sm:text-left">
                     <div className="space-y-6 md:space-y-8 flex flex-col items-center sm:items-start">
                         <Link href="/" className="group flex items-center space-x-3" aria-label="MVO Home">
-                            <div className="relative w-12 h-12 overflow-hidden rounded-xl bg-white/5 border border-white/10 p-1.5 group-hover:scale-110 transition-transform duration-500">
+                            <div className="group-hover:scale-110 transition-transform duration-500">
                                 <Image
                                     src="/logo.png"
                                     alt="MVO Logo"
-                                    fill
+                                    width={80}
+                                    height={80}
+                                    quality={90}
                                     className="object-contain"
                                 />
                             </div>
