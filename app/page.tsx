@@ -9,7 +9,7 @@ import { HeroBackgroundSlider } from "@/components/ui/HeroBackgroundSlider";
 import { LogoMarquee } from "@/components/ui/LogoMarquee";
 
 export const metadata: Metadata = {
-  title: "Empowering Rural Andhra Pradesh | MVO NGO India",
+  title: "Manyaseema : Empowering rural Andhrapradesh",
   description: "Join Manyaseema Volunteer Organization (MVO), the leading rural NGO in Andhra Pradesh. We specialize in sustainable development, agri-tech, and community empowerment.",
 };
 

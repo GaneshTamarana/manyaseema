@@ -21,8 +21,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://manyaseema.org'),
   title: {
-    default: "Manyaseema Volunteer Organization (MVO) | Leading Rural NGO in India",
-    template: "%s | MVO Manyaseema"
+    default: "Manyaseema : Empowering rural Andhrapradesh",
+    template: "%s | Manyaseema"
   },
   description: "Manyaseema Volunteer Organization (MVO) is a top-rated rural NGO focused on sustainable development, education, and health initiatives in Andhra Pradesh and across India.",
   keywords: ["NGO", "Rural Development", "Manyaseema", "MVO", "Volunteer India", "Sustainable Agriculture", "Rural Education", "Andhra NGO"],
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://manyaseema.org',
-    title: 'Manyaseema Volunteer Organization (MVO) | Impacting Rural Lives',
+    title: 'Manyaseema : Empowering rural Andhrapradesh',
     description: 'Empowering communities through sustainable grassroot initiatives in education, health, and solar energy.',
-    siteName: 'Manyaseema Volunteer Organization',
+    siteName: 'Manyaseema',
     images: [{
       url: '/og-image.png',
       width: 1200,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Manyaseema Volunteer Organization (MVO)',
+    title: 'Manyaseema : Empowering rural Andhrapradesh',
     description: 'Empowering communities through sustainable grassroot initiatives.',
     images: ['/og-image.png'],
   },
@@ -71,8 +71,8 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NGO",
-    "name": "Manyaseema Volunteer Organization",
-    "alternateName": "MVO",
+    "name": "Manyaseema",
+    "alternateName": "Manyaseema NGO",
     "url": "https://manyaseema.org",
     "logo": "https://manyaseema.org/logo.png",
     "description": "A leading rural NGO in India focused on sustainable development, education, and health.",
