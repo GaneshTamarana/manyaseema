@@ -19,7 +19,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://manyaseema.org'),
+  metadataBase: new URL('https://manyaseema.ngo'),
   title: {
     default: "Manyaseema : Empowering rural Andhrapradesh",
     template: "%s | Manyaseema"
@@ -28,13 +28,17 @@ export const metadata: Metadata = {
   keywords: ["NGO", "Rural Development", "Manyaseema", "MVO", "Volunteer India", "Sustainable Agriculture", "Rural Education", "Andhra NGO"],
   authors: [{ name: "Manyaseema Volunteer Organization" }],
   creator: "MVO Team",
+  applicationName: "Manyaseema Volunteer Organization",
+  appleWebApp: {
+    title: "Manyaseema Volunteer Organization",
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://manyaseema.org',
+    url: 'https://manyaseema.ngo',
     title: 'Manyaseema : Empowering rural Andhrapradesh',
     description: 'Empowering communities through sustainable grassroot initiatives in education, health, and solar energy.',
-    siteName: 'Manyaseema',
+    siteName: 'Manyaseema Volunteer Organization',
     images: [{
       url: '/og-image.png',
       width: 1200,
@@ -71,10 +75,10 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NGO",
-    "name": "Manyaseema",
-    "alternateName": "Manyaseema NGO",
-    "url": "https://manyaseema.org",
-    "logo": "https://manyaseema.org/logo.png",
+    "name": "Manyaseema Volunteer Organization",
+    "alternateName": "MVO",
+    "url": "https://manyaseema.ngo",
+    "logo": "https://manyaseema.ngo/logo.png",
     "description": "A leading rural NGO in India focused on sustainable development, education, and health.",
     "contactPoint": {
       "@type": "ContactPoint",
