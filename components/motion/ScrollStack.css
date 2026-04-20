@@ -1,0 +1,19 @@
+.scroll-stack-scroller {
+  overflow-y: auto;
+  height: 100vh;
+  position: relative;
+}
+
+.scroll-stack-inner {
+  position: relative;
+}
+
+.scroll-stack-card {
+  position: relative;
+  will-change: transform, filter;
+  transform-origin: top center;
+}
+
+.scroll-stack-end {
+  height: 1px;
+}

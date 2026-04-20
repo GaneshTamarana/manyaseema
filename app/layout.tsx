@@ -64,6 +64,7 @@ export const metadata: Metadata = {
 };
 
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { PageTransition } from "@/components/motion/PageTransition";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 
@@ -109,7 +110,7 @@ export default function RootLayout({
           <Navbar />
           <div className="flex flex-col min-h-screen">
             <main className="flex-grow">
-              {children}
+              <PageTransition>{children}</PageTransition>
             </main>
             <Footer />
           </div>

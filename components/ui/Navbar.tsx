@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { m, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -20,6 +20,8 @@ export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
 
     // Only allow transparent navbar on the home page
     const isHomePage = pathname === "/";
@@ -46,10 +48,16 @@ export function Navbar() {
             className={cn(
                 "fixed top-0 w-full z-50 transition-all duration-500",
                 showSolid
-                    ? "bg-white/95 backdrop-blur-md py-4 shadow-sm border-b border-gray-100"
-                    : "bg-transparent py-6"
+                    ? "bg-white/95 backdrop-blur-md py-2 md:py-4 shadow-sm border-b border-gray-100"
+                    : "bg-transparent py-3 md:py-6"
             )}
         >
+            {showSolid && (
+                <m.div
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary origin-left"
+                    style={{ scaleX }}
+                />
+            )}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     <div className="flex-shrink-0 relative z-50">
@@ -58,21 +66,21 @@ export function Navbar() {
                                 <Image
                                     src="/logo.png"
                                     alt="MVO Logo"
-                                    width={64}
-                                    height={64}
+                                    width={60}
+                                    height={60}
                                     priority
-                                    quality={90}
-                                    className="object-contain"
+                                    quality={100}
+                                    className="object-contain md:w-[80px] md:h-[80px]"
                                 />
                             </div>
                             <div className="flex flex-col leading-tight">
                                 <span className={cn(
-                                    "text-lg sm:text-xl font-heading font-black tracking-tight transition-colors duration-300",
+                                    "text-xl sm:text- font-heading font-black tracking-tight transition-colors duration-300",
                                     showSolid ? "text-primary" : "text-white"
                                 )}>
                                     MANYASEEMA
                                 </span>
-                                <span className="text-xs sm:text-sm font-semibold tracking-wide text-secondary">
+                                <span className="text-[15px] sm:text-sm font-semibold tracking-wide text-secondary">
                                     Voluntary Organization
                                 </span>
                             </div>
@@ -153,28 +161,29 @@ export function Navbar() {
             <AnimatePresence>
                 {isMenuOpen && (
                     <m.div
-                        initial={{ opacity: 0, y: -20 }}
+                        initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-0 left-0 w-full h-screen bg-white md:hidden pt-24 pb-12 px-4 shadow-xl overflow-y-auto"
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute top-0 left-0 w-full bg-white md:hidden pt-16 pb-6 px-5 shadow-xl border-b border-gray-100"
                     >
-                        <div className="flex flex-col space-y-2">
+                        <div className="flex flex-col">
                             {navItems.map((item, idx) => {
                                 const isActive = pathname === item.href;
                                 return (
                                     <m.div
                                         key={item.href}
-                                        initial={{ opacity: 0, x: -20 }}
+                                        initial={{ opacity: 0, x: -16 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: idx * 0.05 }}
+                                        transition={{ delay: idx * 0.04 }}
                                     >
                                         <Link
                                             href={item.href}
                                             className={cn(
-                                                "block py-4 text-2xl font-heading font-black italic tracking-tighter border-b border-gray-50",
-                                                isActive ? "text-primary" : "text-gray-400"
+                                                "flex items-center py-3 text-base font-heading font-black tracking-tight border-b border-gray-50",
+                                                isActive ? "text-primary" : "text-gray-500"
                                             )}
                                         >
+                                            {isActive && <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2 shrink-0" />}
                                             {item.name}
                                         </Link>
                                     </m.div>
@@ -184,11 +193,11 @@ export function Navbar() {
                         <m.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                            className="mt-12"
+                            transition={{ delay: 0.25 }}
+                            className="mt-5"
                         >
                             <Link href="/support-us">
-                                <button className="w-full bg-primary text-white py-6 rounded-3xl font-black text-2xl italic shadow-2xl">
+                                <button className="w-full bg-primary text-white py-3.5 rounded-2xl font-black text-base shadow-lg">
                                     Support Us
                                 </button>
                             </Link>
