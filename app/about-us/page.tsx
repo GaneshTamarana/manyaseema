@@ -147,9 +147,9 @@ export default function AboutUs() {
 
                         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-16">
                             {[
-                                { name: "Srinivasarao CH", role: "CEO & Founder", bio: "25+ years in social service.", photo: "/team/srinu.jpeg" },
+                                { name: "Srinivasarao CH", role: "CEO & Founder", bio: "25+ years in social service.", photo: "/team/srinuu.png" },
                                 { name: "Anusha Chitrada", role: "Head of Operations", bio: "Expert in community mobilization.", photo: "/team/anusha.jpeg" },
-                                { name: "Yesubabu B", role: "Project Coordinator", bio: "Focusing on agri-tech innovation.", photo: "/team/Yesubabu.jpeg" },
+                                { name: "Yesubabu B", role: "Project Coordinator", bio: "Focusing on agri-tech innovation.", photo: "/team/yesu.png" },
                                 { name: "Veerababu Yelleti", role: "District Coordinator, Polavaram, East godavari", bio: "Expanding MVO's reach in the region.", photo: "/team/veerababu.jpeg" },
                                 { name: "Srinivas Varma G", role: "District Coordinator, Eluru, Krishna", bio: "Expanding MVO's reach in the region.", photo: "/team/varma1.jpeg" },
                             ].map((member, i) => (
