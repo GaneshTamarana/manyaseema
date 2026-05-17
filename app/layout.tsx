@@ -67,6 +67,7 @@ import { MotionProvider } from "@/components/motion/MotionProvider";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
@@ -115,6 +116,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );
