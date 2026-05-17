@@ -1,8 +1,47 @@
-"use strict";
+"use client";
 
+import { useState } from "react";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
+type FormState = "idle" | "loading" | "success" | "error";
+
 export default function ContactUs() {
+    const [formState, setFormState] = useState<FormState>("idle");
+    const [errorMsg, setErrorMsg] = useState("");
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setFormState("loading");
+        setErrorMsg("");
+
+        const form = e.currentTarget;
+        const data = {
+            name: (form.elements.namedItem("full-name") as HTMLInputElement).value,
+            email: (form.elements.namedItem("email") as HTMLInputElement).value,
+            subject: (form.elements.namedItem("subject") as HTMLSelectElement).value,
+            message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+        };
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            if (!res.ok) {
+                const json = await res.json();
+                throw new Error(json.error || "Something went wrong.");
+            }
+
+            setFormState("success");
+            form.reset();
+        } catch (err: unknown) {
+            setErrorMsg(err instanceof Error ? err.message : "Failed to send message.");
+            setFormState("error");
+        }
+    }
+
     return (
         <div className="min-h-screen bg-white">
             <main>
@@ -34,20 +73,46 @@ export default function ContactUs() {
                                     <p className="text-gray-500 font-light text-sm">Fields marked with * are required.</p>
                                 </div>
 
-                                <form className="space-y-6 md:space-y-10" aria-label="Contact Information">
+                                {/* Success Banner */}
+                                {formState === "success" && (
+                                    <div className="bg-green-50 border border-green-200 rounded-2xl px-6 py-4 flex items-start gap-3">
+                                        <span className="text-xl mt-0.5">✅</span>
+                                        <div>
+                                            <p className="text-green-800 font-black text-sm">Message sent!</p>
+                                            <p className="text-green-700 font-light text-sm">We've received your message and will get back to you soon.</p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Error Banner */}
+                                {formState === "error" && (
+                                    <div className="bg-red-50 border border-red-200 rounded-2xl px-6 py-4 flex items-start gap-3">
+                                        <span className="text-xl mt-0.5">❌</span>
+                                        <div>
+                                            <p className="text-red-800 font-black text-sm">Failed to send</p>
+                                            <p className="text-red-700 font-light text-sm">{errorMsg}</p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <form
+                                    className="space-y-6 md:space-y-10"
+                                    aria-label="Contact Information"
+                                    onSubmit={handleSubmit}
+                                >
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                                         <div className="space-y-3">
                                             <label htmlFor="full-name" className="text-[10px] font-black uppercase tracking-widest text-primary">Full Name *</label>
-                                            <input id="full-name" type="text" required className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none text-sm" placeholder="John Doe" />
+                                            <input id="full-name" name="full-name" type="text" required className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none text-sm" placeholder="John Doe" />
                                         </div>
                                         <div className="space-y-3">
                                             <label htmlFor="email" className="text-[10px] font-black uppercase tracking-widest text-primary">Email Address *</label>
-                                            <input id="email" type="email" required className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none text-sm" placeholder="john@example.com" />
+                                            <input id="email" name="email" type="email" required className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none text-sm" placeholder="john@example.com" />
                                         </div>
                                     </div>
                                     <div className="space-y-3">
                                         <label htmlFor="subject" className="text-[10px] font-black uppercase tracking-widest text-primary">Subject</label>
-                                        <select id="subject" className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none text-sm">
+                                        <select id="subject" name="subject" className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none text-sm">
                                             <option>General Inquiry</option>
                                             <option>Donation Help</option>
                                             <option>Volunteer Question</option>
@@ -56,10 +121,14 @@ export default function ContactUs() {
                                     </div>
                                     <div className="space-y-3">
                                         <label htmlFor="message" className="text-[10px] font-black uppercase tracking-widest text-primary">Message *</label>
-                                        <textarea id="message" rows={5} required className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none text-sm" placeholder="Tell us how we can help..." />
+                                        <textarea id="message" name="message" rows={5} required className="w-full bg-light-gray border-none rounded-2xl py-4 px-6 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none text-sm" placeholder="Tell us how we can help..." />
                                     </div>
-                                    <button type="submit" className="bg-primary text-white w-full py-4 md:py-6 rounded-2xl font-black text-base md:text-xl hover:bg-primary-hover shadow-2xl transition-all transform hover:-translate-y-1 tracking-tight focus-visible:ring-4 focus-visible:ring-primary/30">
-                                        Send Message
+                                    <button
+                                        type="submit"
+                                        disabled={formState === "loading"}
+                                        className="bg-primary text-white w-full py-4 md:py-6 rounded-2xl font-black text-base md:text-xl hover:bg-primary-hover shadow-2xl transition-all transform hover:-translate-y-1 tracking-tight focus-visible:ring-4 focus-visible:ring-primary/30 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                                    >
+                                        {formState === "loading" ? "Sending…" : "Send Message"}
                                     </button>
                                 </form>
                             </ScrollReveal>
