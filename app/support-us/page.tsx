@@ -59,16 +59,42 @@ export default function SupportUs() {
                                         <span className="text-9xl">📱</span>
                                     </div>
                                     <h3 className="text-lg md:text-3xl font-black text-gray-900 mb-4 tracking-tight">Scan to Support</h3>
-                                    <div className="bg-white p-4 md:p-6 rounded-[20px] md:rounded-[32px] shadow-inner border border-gray-100 aspect-square flex flex-col items-center justify-center space-y-3 mb-5 md:mb-8">
-                                        <div className="w-36 h-36 md:w-56 md:h-56 bg-gray-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-primary/20 relative group">
-                                            <span className="text-primary font-black text-xs tracking-widest uppercase opacity-40 text-center px-2">UPI QR Code</span>
+                                    <div className="bg-white p-4 md:p-6 rounded-[20px] md:rounded-[32px] shadow-inner border border-gray-100 flex flex-col items-center justify-center space-y-4 mb-5 md:mb-8">
+                                        <div className="relative w-48 h-48 md:w-64 md:h-64">
+                                            <Image
+                                                src="/upi-qr.png"
+                                                alt="Manyaseema UPI QR Code — Scan to donate"
+                                                fill
+                                                className="object-contain rounded-2xl"
+                                            />
                                         </div>
-                                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.15em]">UPI ID: mvo@axisbank</p>
+                                        <p className="text-[10px] text-gray-400 font-bold tracking-[0.15em]">UPI ID: 333787663417989@cnrb</p>
+
+                                        {/* BHIM + UPI trust badges */}
+                                        <div className="flex items-center justify-center gap-6 pt-1">
+                                            <Image src="/logos/bhim-logo.png" alt="BHIM" width={64} height={40} className="object-contain h-10 w-auto" />
+                                            <div className="w-px h-8 bg-gray-200" />
+                                            <Image src="/logos/upi-logo.png" alt="UPI" width={96} height={48} className="object-contain h-12 w-auto" />
+                                        </div>
                                     </div>
-                                    <div className="flex flex-wrap justify-center gap-3">
-                                        <div className="px-3 py-1 bg-white rounded-lg text-[10px] font-black">GPay</div>
-                                        <div className="px-3 py-1 bg-white rounded-lg text-[10px] font-black">PhonePe</div>
-                                        <div className="px-3 py-1 bg-white rounded-lg text-[10px] font-black">Paytm</div>
+
+                                    {/* Payment app logos */}
+                                    <div className="flex flex-wrap justify-center items-center gap-2">
+                                        <div className="h-9 bg-white rounded-xl px-3 py-1.5 flex items-center shadow-sm border border-gray-100">
+                                            <Image src="/logos/phone-pe.png" alt="PhonePe" width={72} height={24} className="object-contain h-5 w-auto" />
+                                        </div>
+                                        <div className="h-9 bg-white rounded-xl px-3 py-1.5 flex items-center shadow-sm border border-gray-100">
+                                            <Image src="/logos/gpay.png" alt="Google Pay" width={72} height={24} className="object-contain h-5 w-auto" />
+                                        </div>
+                                        <div className="h-9 bg-white rounded-xl px-3 py-1.5 flex items-center shadow-sm border border-gray-100">
+                                            <Image src="/logos/paytm.png" alt="Paytm" width={72} height={24} className="object-contain h-5 w-auto" />
+                                        </div>
+                                        <div className="h-9 bg-white rounded-xl px-3 py-1.5 flex items-center shadow-sm border border-gray-100">
+                                            <Image src="/logos/canara-ail.png" alt="Canara AI1" width={72} height={24} className="object-contain h-5 w-auto" />
+                                        </div>
+                                        <div className="h-9 bg-white rounded-xl px-3 py-1.5 flex items-center shadow-sm border border-gray-100">
+                                            <Image src="/logos/canara-cbdc.png" alt="Canara CBDC" width={72} height={24} className="object-contain h-5 w-auto" />
+                                        </div>
                                     </div>
                                 </ScrollReveal>
 
